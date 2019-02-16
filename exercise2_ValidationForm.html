@@ -1,0 +1,97 @@
+<html>
+   <head>
+      <title>Form Validation</title>
+      <script type = "text/javascript">
+          pass=document.getElementById('pass').value;
+
+         function validate() {
+
+         if( document.myForm.Name.value.length < 3 ) {
+            alert( "Please provide correct name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+
+             else    if( document.myForm.Name.value <3 ) {
+            alert( "Please provide your full name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+
+             else    if( document.myForm.EMail.value == "" ) {
+            alert( "Please provide your Email!" );
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+
+             else    if( document.myForm.PhoneNumber.value.length != 10 ) {
+
+            alert( "Please provide a valid phone number!" );
+            document.myForm.Zip.focus() ;
+            return false;
+         }
+
+             else    if( document.myForm.Country.value == "-1" ) {
+            alert( "Please provide your country!" );
+            return false;
+         }
+             else if(pass==''){
+        window.alert("Please provide password");
+
+    }
+        else  return( true );
+      }
+      </script>
+       <style>
+           input {
+               width: 100%;
+               padding: 12px;
+               border: 1px solid #ccc;
+               border-radius: 4px;
+               box-sizing: border-box;
+               margin-top: 6px;
+               margin-bottom: 16px;
+               }
+           select {
+               width: 100%;
+               padding: 12px;
+               border: 1px solid #ccc;
+               border-radius: 4px;
+               box-sizing: border-box;
+               margin-top: 6px;
+               margin-bottom: 16px;
+               }
+           .container {
+               background-color: #f1f1f1;
+               padding: 20px;
+               }
+           input[type=submit] {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+       </style>
+   </head>
+
+   <body>
+       <div class="container">
+      <form  name = "myForm" onsubmit = "return(validate());">
+
+
+            Name: <input type = "text" name = "Name" />
+            EMail:<input type = "text" name = "EMail" />
+            PhoneNumber:<input type = "text" name = "phno" />
+            Country:
+                  <select name = "Country">
+                     <option value = "-1" selected>[choose yours]</option>
+                     <option value = "1">INDIA</option>
+                     <option value = "2">USA</option>
+                     <option value = "3">UK</option>
+                  </select>
+            Password:<input type ="password" id="pass" />
+               <input type = "submit" value = "Submit" />
+
+      </form>
+       </div>
+   </body>
+</html>
