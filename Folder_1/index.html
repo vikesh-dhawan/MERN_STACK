@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+   <div id="app"></div>
+  <script type="text/babel">
+    //var Div = React.createElement('h1',null,'This is in Browser Element');
+    //ReactDOM.render(Div,document.getElementById('app'));
+    class App extends React.Component{
+      state = { name :"Vikesh",
+                  age:"19",
+                  lastname:"Dhawan",
+              }
+      a = {
+        b:20
+       }
+      render(){
+        /* this is inside JSX can be commented only like this */
+        return (
+        <div>
+          <h1> HELLO ! this is JSX </h1>
+          <p>{ this.state.name } { this.a.b } </p>
+          <h1> { Math.random()*10 } </h1>
+          <button onClick={ this.handleclick }>Click Me</button>
+          <h3 onCopy={ this.handlecopy }> Try Copying it! </h3>
+          <form>
+            <input type="text" name="name" onChange={ this.handleSubmit } />
+            <button onSubmit={ this.handleSubmit }>submit</button>
+          </form>
+        </div>
+        )
+      }
+      handleclick=(e)=>{
+        this.setState(
+          {
+            name: 'john',
+          }
+        );
+        alert(this.state.name);
+      }
+      handlecopy(e){
+        window.alert("stop");
+      }
+      handleSubmit=(e)=>{
+            this.setState(
+              {
+                name:e.target.value
+              }
+            )
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+</body>
+</html>
